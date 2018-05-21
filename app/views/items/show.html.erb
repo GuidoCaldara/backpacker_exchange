@@ -1,0 +1,91 @@
+<div class="container">
+  <div class="row mt-5">
+    <div class="col-lg-10">
+      <div class="row">
+        <div class="col-lg-6">
+          <% if @item.photo? %>
+            <div class="photo-show-container" style='background-image: url("<%= @item.photo.url%>")'></div>
+          <% else  %>
+            <div class="photo-show-container" style='background-image: url(https://res.cloudinary.com/bckapp/image/upload/v1525918300/noimage.jpg)'></div>
+          <% end  %>
+        </div>
+
+        <div class="col-lg-6 right-column">
+          <h2><%= @item.title %></h2>
+          <p class ="card-info"> Available from <%= @item.available_from %> to <%= @item.available_to %> in <%= @item.city %>, <%= @item.country %></p>
+          <p><%= @item.description %></p>
+          <% if @item.price %>
+            <p>Price: <%= @item.price %>$</p>
+          <% else %>
+            <p>This item is for free!</p>
+          <% end %>
+          <div class="show-user-info">
+            <p>Selled by <%= @item.user.username %></p>
+          </div>
+          <% if user_signed_in? %>
+            <button class = "btn btn-primary" type="button" name="button" data-toggle="modal" data-target="#message"> Contact the seller</button>
+          <% else %>
+            <button class = "btn btn-primary" type="button" name="button" data-toggle="modal" data-target="#access"> Contact the seller</button>
+          <% end %>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+<div class="modal fade" id="access" tabindex="-1" role="dialog" aria-labelledby="access" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-body p-1">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true" class="float-right mr-4 mt-0" style="font-size: 37px">×</span>
+        </button>
+
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+          <li class="nav-item">
+            <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Log In</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Sign Up</a>
+          </li>
+        </ul>
+        <div class="tab-content" id="myTabContent">
+          <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+            <%= render "devise/sessions/new", resource: User.new %>
+          </div>
+          <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+            <%= render "devise/registrations/new", resource: User.new %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<% if user_signed_in?%>
+
+<div class="modal fade" id="message" tabindex="-1" role="dialog" aria-labelledby="message" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <%= render "messages/new_message" %>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<% end %>

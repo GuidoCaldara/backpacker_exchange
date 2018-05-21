@@ -1,0 +1,40 @@
+
+<div class="col-md-4 col-sm-6">
+  <%= link_to item_path(item.id) do %>
+  <div class="card mb-3 item-card" style="width: 100%;">
+    <% if item.photo? %>
+      <div class="card-photo-cont" style = "background-image: url('<%= item.photo.url %>')">
+      </div>
+      <% if item.price %>
+      <div class="price-info"> <%= item.price %>$</div>
+      <% else %>
+      <div class="price-info"> Free!!!</div>
+      <% end %>
+    <% else %>
+    <div class="card-photo-cont" style= "background-image: url('https://res.cloudinary.com/bckapp/image/upload/v1525918300/noimage.jpg')">
+      <% if item.price %>
+      <div class="price-info"> <%= item.price %>$</div>
+      <% else %>
+      <div class="price-info"> Free!!!</div>
+      <% end %>
+
+    </div>
+    <% end %>
+
+  <div class="card-body item-card-body px-2">
+    <div class="">
+      <p class = "card-info mb-0">Available in <%= item.city %>
+        <% if item.country_code%>
+        <span class="flag-icon flag-icon-<%= (item.country_code).downcase %>"> </span>
+        <% end %>
+      </p>
+      <p class = "card-info mb-1"> Untill <%= item.available_to %> </p>
+    </div>
+    <div class="">
+      <h3 class ="mb-1"><%= item.title %></h3>
+      <p class="card-text item-card-description"><%= item.description.truncate(90) %></p>
+    </div>
+    </div>
+  </div>
+<% end  %>
+</div>

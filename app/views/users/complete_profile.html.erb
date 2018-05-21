@@ -1,0 +1,35 @@
+<div class="container">
+  <div class="row">
+    <div class="col-lg-6 mx-auto">
+      <%= simple_form_for current_user, url: save_profile_path(current_user.id), method: :post do |f| %>
+        <%= f.input :username, label: "Choose an username" %>
+        <%= f.input :description, label: "Tell something about you to others travelere"%>
+        <%= f.input :dob, label: "Insert your date of birth" %>
+        <%= f.input :place, input_html: {id: "location"}, label: "Where are you from?" %>
+        <%= f.input :avatar, label: "Upload your photo profile"%>
+        <%= f.button :submit%>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<script>
+(function() {
+  var placesAutocomplete = places({
+    container: document.querySelector('#location'),
+    language: 'en',
+    type: 'country',
+
+
+    templates: {
+      suggestion: function(suggestion) {
+        return  suggestion.highlight.name + ", " + suggestion.countryCode.toUpperCase()
+      },
+      value: function(suggestion) {
+        return suggestion.name + ", " + suggestion.countryCode.toUpperCase()
+    }
+    }
+  });
+})();
+
+</script>

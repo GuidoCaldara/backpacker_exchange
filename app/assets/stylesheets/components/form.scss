@@ -1,0 +1,25 @@
+.close-button {
+  width: 50px;
+  align-self: right !important;
+  margin-left: auto;
+  margin-top: 5px;
+  display: initial;
+  position: absolute;
+  z-index: 47;
+  right: 5px;
+}
+
+.close-button > span {
+  font-size: 35px;
+  font-weight: 300;
+}
+
+
+ input  {
+  font-weight: 300px !important
+}
+
+.form-control:focus{
+  border-color:  yellow;
+
+}

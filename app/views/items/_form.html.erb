@@ -1,0 +1,45 @@
+<div class="container">
+  <div class="row">
+    <div class="col-lg-6 mx-auto">
+      <%= simple_form_for @item do |f| %>
+        <%= f.input :title %>
+        <%= f.input :description %>
+        <div id= "date-range-container" class="form-row d-flex justify-content-around">
+          <div class="input-daterange input-group" id="datepicker">
+            <%= f.input :available_from, html5: true, input_html: {type: "text", class: "form-control"}%>
+              <%= f.input :available_to, html5: true, input_html: { type: "text"} %>
+          </div>
+
+        </div>
+        <%= f.input :location, input_html: {id: "location"}%>
+        <%= f.input :price%>
+        <%= f.input :free, label: "No, i want give away this stuff for free!"%>
+
+        <%= f.input :photo%>
+
+        <%= f.button :submit %>
+      <% end %>
+
+    </div>
+  </div>
+</div>
+
+
+
+
+<script type="text/javascript">
+$('#date-range-container .input-daterange').datepicker({
+  format: "dd/mm/yyyy",
+  keyboardNavigation: false,
+  forceParse: false
+});
+</script>
+
+<script>
+(function() {
+  var placesAutocomplete = places({
+    language : 'en',
+    container: document.querySelector('#location')
+  });
+})();
+</script>

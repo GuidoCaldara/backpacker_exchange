@@ -1,0 +1,21 @@
+.city-suggestion{
+  background-color: #F38181;
+margin-left: 12px;
+margin-bottom: 5px;
+padding: 0 10px;
+border-radius: 6px;
+color: #ffffff;
+}
+
+
+.city-suggestion:hover{
+  background-color: #ef4d4d
+}
+
+
+.city-suggestion:active {
+  background-color: #ef4d4d;
+  box-shadow: 0 3px #dadada;
+  -webkit-transform: translateY(4px);
+  transform: translateY(2px);
+}

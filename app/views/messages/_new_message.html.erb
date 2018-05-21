@@ -1,0 +1,7 @@
+<%= simple_form_for :message, url: "messages/send_message" do |f| %>
+  <%= f.input :text %>
+  <%= f.hidden_field :item, :value => @item.id %>
+  <%= f.hidden_field :sender, :value => current_user.id %>
+  <%= f.hidden_field :reciver, :value => @item.user_id %>
+  <%= f.submit  %>
+<% end  %>

@@ -1,0 +1,108 @@
+<div class="container">
+  <div class="row mt-4 mb-3">
+    <div class="w-100">
+      <h3>Search per country</h3>
+      <%= form_tag items_path, method: :get, :class => "form-inline", id: "form-index" do %>
+      <div class="w-50">
+        <%= text_field_tag :search_location %>
+      </div>
+      <div >
+        <%= submit_tag('Search', class:"btn btn-primary ml-3") %>
+      </div>
+      <div >
+        <%= link_to "Reset Criteria", items_path, class:"btn button-secondary ml-3" %>
+      </div>
+
+    <% end %>
+  </div>
+</div>
+
+<% if @filtered_items %>
+
+  <% if @country %>
+    <h1>
+      Items on sale in
+      <% if @current_city %>
+        <%= @current_city %>,
+      <%end %>
+      <%= @country %>
+    </h1>
+  <% end %>
+  <% if @cities %>
+    <div class="d-flex">
+      <% @cities.each do |city| %>
+        <%= link_to items_path(city: city, country: @country) do%>
+        <div class="city-suggestion"><%= city %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+<% end %>
+
+<div class="row">
+  <div class="col-lg-12 mx-auto">
+    <div class="row mt-5">
+      <% @filtered_items.each do |item| %>
+        <%= render "card", item: item%>
+      <% end %>
+      <% if @filtered_items.empty? %>
+      <% byebug %>
+        <h3>So sorry! Actually no stuff for sale in XXXX
+          :(
+        </h3>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<% else %>
+
+<% if @countries %>
+  <div class="d-flex">
+    <% @countries.each do |country| %>
+      <%= link_to items_path(search_location: country) do%>
+      <div class="city-suggestion"><%= country %>
+      </div>
+
+    <% end %>
+
+  <% end %>
+</div>
+<% end %>
+<div class="row">
+<div class="col-lg-12 mx-auto">
+  <div class="row mt-5">
+    <% @items.each do |item| %>
+      <%= render "card", item: item%>
+    <% end %>
+    <% if @items.empty? %>
+      <h3>So sorry! Actually no stuff for sale :(
+      </h3>
+    <% end %>
+  </div>
+</div>
+</div>
+
+<% end %>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/places.js@1.6.0"></script>
+<script>
+(function () {
+var placesAutocomplete = places({
+container: document.querySelector('#search_location'),
+language: 'en',
+type: 'country',
+
+templates: {
+  suggestion: function (suggestion) {
+    return suggestion.highlight.name + ", " + suggestion.countryCode.toUpperCase()
+  },
+  value: function (suggestion) {
+    return suggestion.name + ", " + suggestion.countryCode.toUpperCase()
+  }
+}
+});
+})();
+</script>

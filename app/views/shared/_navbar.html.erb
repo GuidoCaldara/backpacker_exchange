@@ -1,0 +1,63 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">
+    <%= link_to items_path do %>
+    <%= image_tag ("logoblack.png"), height: "40px" %> <p class ="d-inline">Backpacker Exchange</p>
+  </a>
+  <% end %>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <% if !user_signed_in? %>
+      <ul class="navbar-nav ml-auto">
+        <li class=" nav-item active">
+          <%= link_to "Login", new_user_session_path, class:"navbar-nav-link nav-link", data: {toggle: "modal", target: "#login"} %>
+        </li>
+        <li class=" nav-item active">
+          <%= link_to "Sign Up", new_user_registration_path, class:"navbar-nav-link nav-link", data: {toggle: "modal", target: "#Signup"} %>
+        </li>
+      </ul>
+    <% end %>
+
+    <% if user_signed_in? %>
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item ">
+          <%= link_to "Your dashboard", user_dashboard_path(current_user.id), class:"navbar-nav-link" %>
+        </li>
+        <li class="nav-item active">
+          <%= link_to "Sign Out", destroy_user_session_path, method: :delete, class:"nav-item ml-4 navbar-nav-link" %>
+        </li>
+      </ul>
+    <% end %>
+
+  </div>
+</nav>
+
+<div class="modal fade" id="login" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <button type="button" class="close close-button" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+
+      <div class="modal-body">
+        <%= render "devise/sessions/new", resource: User.new %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="Signup" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="position-relative modal-content">
+      <button type="button" class="close close-button" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+
+      <div class="modal-body">
+        <%= render "devise/registrations/new", resource: User.new %>
+      </div>
+    </div>
+  </div>
+</div>
