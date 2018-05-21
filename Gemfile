@@ -58,6 +58,11 @@ group :development, :test do
 end
 
 group :development do
+  gem 'brakeman', :require => false
+end
+
+
+group :development do
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
   gem 'web-console', '>= 3.3.0'
   gem 'listen', '>= 3.0.5', '< 3.2'

@@ -15,9 +15,8 @@
   </head>
 
   <body>
+    <%= render 'layouts/messages' %>
     <%= render "shared/navbar" unless controller_name == "pages" %>
-    <!-- <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p> -->
     <%= yield %>
   </body>
 </html>

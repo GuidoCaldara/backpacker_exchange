@@ -1,0 +1,25 @@
+.alert-container {
+  height: 100vh;
+  background: #44444430;
+  z-index: 5;
+  position: absolute;
+  display: flex;
+  justify-content: space-around;
+  align-items: self-start;
+  width: 100%;
+  padding-top: 130px;
+}
+
+.alert-success {
+  color: #155724;
+  background-color: #8ee6a3;
+  border-color: #c3e6cb00;
+  font-size: 25px;
+  width: 45%;
+  padding: 11px 18px 0 0;
+}
+
+
+.alert ul {
+  list-style: none;
+}

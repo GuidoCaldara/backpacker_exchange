@@ -2,16 +2,21 @@ class MessagesController < ApplicationController
 
   def send_message
     mail = UserMailer.new
+    @item = Item.find(params["message"]["item"])
+    @reciver = User.find(@item.user_id)
+    @sender = current_user
     par = {
       message: params["message"]["text"],
-      sender: User.find(params["message"]["sender"]),
-      reciver: User.find(params["message"]["reciver"]),
-      item: Item.find(params["message"]["item"])
+      sender: @sender,
+      reciver: @reciver,
+      item: @item
      }
-    @favourite = Favourite.new(user_id: params["message"]["sender"], item_id: params["message"]["item"])
+     byebug
+    @favourite = Favourite.new(user_id: @sender.id, item_id: @item.id)
     @favourite.save
     mail.contact_mail(par).deliver
-    redirect_to item_path(params["message"]["item"].to_i)
+    redirect_to item_path(@item.id)
+    flash[:success] = "Great! Your message has been sent :)"
   end
 
 end

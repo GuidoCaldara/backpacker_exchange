@@ -14,12 +14,28 @@
   font-weight: 300;
 }
 
-
- input  {
-  font-weight: 300px !important
+input {
+  font-weight: 300px !important;
 }
 
-.form-control:focus{
-  border-color:  yellow;
+.form-control:focus {
+  border-color: yellow;
+}
 
+#message_message {
+  height: 250px;
+
+}
+
+.disclaimer {
+  z-index: 1;
+  height: 100%;
+  position: absolute;
+  background-color: #efefef;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 28px;
 }
