@@ -3,7 +3,7 @@
     <div class="side-column col-lg-2">
       <div class="mb-3 nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
         <a class="my-0 side-link nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">Home</a>
-        <a class="my-0 side-link nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">Profile</a>
+        <a class="my-0 side-link nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">Profile Settings</a>
         <a class="my-0 side-link nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#mail-and-psw" role="tab" aria-controls="mail-and-" aria-selected="false">Change mail and password</a>
 
 
@@ -18,7 +18,7 @@
           <div class="row">
             <div class="col-lg-4">
               <% if @user.avatar.url %>
-              <div class="card-photo-cont" style="background-image: url('<%= @user.avatar.url %>')"></div>
+              <div class="user-photo mx-auto mb-4" style="background-image: url('<%= @user.avatar.url %>')"></div>
               <% else %>
               <div class="card-photo-cont" style="background-image: url('https://res.cloudinary.com/bckapp/image/upload/v1525918300/noimage.jpg')">
               </div>
@@ -108,7 +108,7 @@
                     <%= f.input :dob, label: "Insert your date of birth" %>
                     <%= f.input :place, input_html: {id: "location"}, label: "Where are you from?" %>
                     <%= f.input :avatar, label: "Upload your photo profile"%>
-                    <%= f.button :submit%>
+                    <%= f.button :submit, "Save", class: "btn btn-primary"%>
                   <% end %>
                 </div>
 

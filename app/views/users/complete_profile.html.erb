@@ -1,13 +1,14 @@
 <div class="container">
-  <div class="row">
+  <h1 class="mb-3">Complete your profile <span><p class ="d-inline">Field with (*) are mandatory</p> </span> </h1>
+  <div class="row mt-4">
     <div class="col-lg-6 mx-auto">
       <%= simple_form_for current_user, url: save_profile_path(current_user.id), method: :post do |f| %>
-        <%= f.input :username, label: "Choose an username" %>
+        <%= f.input :username, label: "Choose an username (*)" %>
         <%= f.input :description, label: "Tell something about you to others travelere"%>
-        <%= f.input :dob, label: "Insert your date of birth" %>
-        <%= f.input :place, input_html: {id: "location"}, label: "Where are you from?" %>
+        <%= f.input :dob, label: "Insert your date of birth (*)" %>
+        <%= f.input :place, input_html: {id: "location"}, label: "Where are you from? (*)" %>
         <%= f.input :avatar, label: "Upload your photo profile"%>
-        <%= f.button :submit%>
+        <%= f.button :submit, "Save your profile", class: "btn btn-primary"%>
       <% end %>
     </div>
   </div>

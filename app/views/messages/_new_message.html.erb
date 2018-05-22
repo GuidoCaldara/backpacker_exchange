@@ -1,5 +1,21 @@
 <%= simple_form_for :message, url: "messages/send_message" do |f| %>
   <%= f.input :message, as: :text, label: false%>
   <%= f.hidden_field :item, :value => @item.id %>
-  <%= f.submit "Send message", class: "btn-primary btn float-right" %>
+  <div class="d-flex justify-content-around">
+    <div class="g-recaptcha" data-sitekey="6LePrFoUAAAAAAymPVr5uh5LMj9uzznXH5cP-6Kq" data-callback="enableBtn"></div> <br>
+    <div class="d-flex flex-column justify-content-end">
+      <%= f.submit "Send message", class: "send-msg-btn btn-primary btn float-right", id:"mybtn" %>
+    </div>
+
+  </div>
 <% end  %>
+
+
+<script type="text/javascript">
+document.getElementById("mybtn").disabled = true;
+
+function enableBtn(){
+   document.getElementById("mybtn").disabled = false;
+  }
+
+</script>

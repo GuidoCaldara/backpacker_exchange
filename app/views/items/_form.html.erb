@@ -2,22 +2,23 @@
   <div class="row">
     <div class="col-lg-6 mx-auto">
       <%= simple_form_for @item do |f| %>
-        <%= f.input :title %>
-        <%= f.input :description %>
+        <%= f.input :title, label: "Title - What are you selling?" %>
+        <%= f.input :description, label: "Insert a description of what are you selling" %>
+        <%= f.input :location, input_html: {id: "location"}, label:"Whare are you selling this item?"%>
+        <p class= "form-p">When the item will be available in this place?</p>
         <div id= "date-range-container" class="form-row d-flex justify-content-around">
           <div class="input-daterange input-group" id="datepicker">
-            <%= f.input :available_from, html5: true, input_html: {type: "text", class: "form-control"}%>
-              <%= f.input :available_to, html5: true, input_html: { type: "text"} %>
+            <%= f.input :available_from, html5: true, input_html: {type: "text", class: "form-control"}, label: "From"%>
+              <%= f.input :available_to, html5: true, input_html: { type: "text", class: "form-control"}, label: "To" %>
           </div>
 
         </div>
-        <%= f.input :location, input_html: {id: "location"}%>
-        <%= f.input :price%>
-        <%= f.input :free, label: "No, i want give away this stuff for free!"%>
+        <%= f.input :price, label: "Insert the price in US Dollars" %>
+        <%= f.input :free, label: "Click here if you want to give away this stuff for free!"%>
 
-        <%= f.input :photo%>
+        <%= f.input :photo, label: "Upload a photo. A photo of the object is mandatory"%>
 
-        <%= f.button :submit %>
+        <%= f.button :submit, "Insert", class: "btn btn-primary" %>
       <% end %>
 
     </div>

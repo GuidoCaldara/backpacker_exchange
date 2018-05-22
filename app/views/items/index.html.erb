@@ -30,6 +30,7 @@
   <% end %>
   <% if @cities %>
     <div class="d-flex">
+      <h5>Find stuff in: </h5>
       <% @cities.each do |city| %>
         <%= link_to items_path(city: city, country: @country) do%>
         <div class="city-suggestion"><%= city %>
@@ -59,6 +60,7 @@
 
 <% if @countries %>
   <div class="d-flex">
+    <h5>Find stuff in: </h5>
     <% @countries.each do |country| %>
       <%= link_to items_path(search_location: country) do%>
       <div class="city-suggestion"><%= country %>

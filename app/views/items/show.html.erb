@@ -17,7 +17,9 @@
           <% if @item.price %>
             <p>Price: <%= @item.price %>$</p>
           <% else %>
-            <p>This item is for free!</p>
+          <div class="">
+            <div class="free-item "> This item is for free!!!</div>
+          </div>
           <% end %>
           <div class="show-user-info">
             <p>Selled by <%= @item.user.username %></p>
@@ -102,11 +104,4 @@
   button.addEventListener("click", function(){
     panel.style.display= "none"
   })
-  var closealert = document.querySelector(".close-alert")
-  if (closealert != null){
-    closealert.addEventListener(("click"),function(){
-      document.querySelector(".alert-container").style.display = "none"
-    })
-
-  }
 </script>

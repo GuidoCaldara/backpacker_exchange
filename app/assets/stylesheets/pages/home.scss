@@ -1,5 +1,5 @@
 .home-banner{
-  height: 70vh;
+  height: 80vh;
   padding: 0px
 }
 .ap-dropdown-menu .ap-with-places{
@@ -7,7 +7,7 @@
 }
 .background{
   height: 100%;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.3)), url(asset-path('background-home.jpg'));
+  background-image: linear-gradient(rgba(0, 0, 0, 1.65), rgba(0, 0, 0, 0.3)), url(asset-path('background-home.jpg'));
   background-size: cover;
   background-position: inherit;
   background-repeat: no-repeat;
@@ -60,10 +60,24 @@ border-radius: 7px;
 
 
 .title{
-  align-self: center;
+  font-family: 'Anton', sans-serif;
+align-self: center;
 font-size: 75px;
-color: white;
-margin-left: 43px;
+}
+
+.sub-t{
+  font-family: 'Anton', sans-serif;
+  align-self: center;
+  font-size: 40px;
+
+}
+
+.before-title{
+  font-family: 'Anton', sans-serif;
+  text-align: left;
+  color: #95E1D3;
+  font-size: 30px;
+
 }
 
 span#algolia-places-listbox-0 {
@@ -79,4 +93,25 @@ span#algolia-places-listbox-0 {
 color: white;
 margin: 0 auto;
 font-weight: 300;
+}
+
+.circle{
+  border-radius: 50%;
+border: 1px solid #e0dfdf;
+padding: 21px;
+width: 190px;
+height: 190px;
+}
+
+.home-text{
+  font-size: 20px
+}
+
+.row-home{
+  border-top: 1px solid #e0dfdf;
+  padding-top: 20px
+}
+
+.btn-home:hover{
+  color: #F38181
 }

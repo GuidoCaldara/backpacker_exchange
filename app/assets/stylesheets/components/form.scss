@@ -19,12 +19,11 @@ input {
 }
 
 .form-control:focus {
-  border-color: yellow;
+  border-color: none;
 }
 
 #message_message {
   height: 250px;
-
 }
 
 .disclaimer {
@@ -38,4 +37,14 @@ input {
   align-items: center;
   justify-content: center;
   padding: 28px;
+}
+
+.send-msg-btn:disabled {
+  background-color: #dadada;
+}
+
+.form-p {
+  font-family: Quicksand, sans-serif;
+  color: rgb(32, 48, 60);
+  font-weight: 400;
 }
