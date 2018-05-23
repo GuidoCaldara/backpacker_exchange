@@ -26,12 +26,10 @@ before_action :authenticate_user!, except: [:show, :index]
 
   def new
     @item = Item.new
-    authorize @item
   end
 
   def create
     @item = Item.new(item_params)
-    authorize @item
     @item.user_id = current_user.id
     if @item.save
      redirect_to user_dashboard_path(current_user.id)
