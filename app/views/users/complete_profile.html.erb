@@ -5,7 +5,7 @@
       <%= simple_form_for current_user, url: save_profile_path(current_user.id), method: :post do |f| %>
         <%= f.input :username, label: "Choose an username (*)" %>
         <%= f.input :description, label: "Tell something about you to others travelere"%>
-        <%= f.input :dob, label: "Insert your date of birth (*)" %>
+        <%= f.input :dob, label: "Insert your date of birth (*)",  start_year: Date.today.year - 110, end_year: Date.today.year %>
         <%= f.input :place, input_html: {id: "location"}, label: "Where are you from? (*)" %>
         <%= f.input :avatar, label: "Upload your photo profile"%>
         <%= f.button :submit, "Save your profile", class: "btn btn-primary"%>

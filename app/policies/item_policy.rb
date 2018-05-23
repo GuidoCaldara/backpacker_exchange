@@ -15,9 +15,11 @@ class ItemPolicy
   end
 
   def create?
+    false
   end
 
   def new?
+    false
   end
 
   def update?
