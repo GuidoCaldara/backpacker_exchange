@@ -11,6 +11,12 @@
   color: white
 
 }
+.btn-primary:active{
+  background-color: #66c7b6 !important;
+  border: none !important;
+  color: white !important;
+
+}
 
 
 .button-secondary{
@@ -24,4 +30,9 @@
   background-color: #ffd53f;
   border: none;
   color: #ef4d4d
+}
+
+.btn:focus{
+  box-shadow: none !important;
+
 }

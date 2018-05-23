@@ -1,6 +1,8 @@
 class UsersController < ApplicationController
+  before_action :authenticate_user!
   def dashboard
     @user = current_user
+    authorize @user
     @selling_items = Item.where(user_id: current_user.id)
     @favourites =[]
     @user.favourites.each do |fav|
@@ -11,10 +13,12 @@ class UsersController < ApplicationController
 
   def complete_profile
     @user = current_user
+    authorize @user
   end
 
   def save_profile
     @user = current_user
+    authorize @user
     @user.update(user_params)
     @user.profile_complete = true
     @user.save

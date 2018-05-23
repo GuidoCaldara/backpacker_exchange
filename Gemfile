@@ -17,6 +17,7 @@ gem 'sass-rails', '~> 5.0'
 gem 'geocoder'
 gem "figaro"
 gem 'cloudinary'
+gem "pundit"
 gem 'carrierwave', '~> 0.11.2'
 gem  "faker"
 gem 'flag-icons-rails'

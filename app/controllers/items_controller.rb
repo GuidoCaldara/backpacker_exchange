@@ -1,6 +1,7 @@
 class ItemsController < ApplicationController
 
 before_action :set_item, only: [:show, :update, :edit, :destroy]
+before_action :authenticate_user!, except: [:show, :index]
 
 
   def index
@@ -25,10 +26,12 @@ before_action :set_item, only: [:show, :update, :edit, :destroy]
 
   def new
     @item = Item.new
+    authorize @item
   end
 
   def create
     @item = Item.new(item_params)
+    authorize @item
     @item.user_id = current_user.id
     if @item.save
      redirect_to user_dashboard_path(current_user.id)
@@ -38,9 +41,11 @@ before_action :set_item, only: [:show, :update, :edit, :destroy]
   end
 
   def edit
+    authorize @item
   end
 
   def update
+    authorize @item
     @item.update(item_params)
     @item.save
     if @item.save
@@ -51,6 +56,7 @@ before_action :set_item, only: [:show, :update, :edit, :destroy]
   end
 
   def destroy
+    authorize @item
     @item.delete
     redirect_to user_dashboard_path(current_user.id)
   end
