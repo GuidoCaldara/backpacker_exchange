@@ -1,0 +1,36 @@
+.nav-link {
+  outline: none !important;
+}
+
+.navbar-nav-link {
+  border-bottom: 4px solid transparent;
+  padding-bottom: 4px;
+}
+
+.navbar-nav-link:hover {
+  border-bottom: 4px solid #F38181;
+}
+
+a.navbar-nav-link {
+  font-size: 20px;
+}
+
+li.nav-item {
+  margin-bottom: 9px;
+}
+
+div#navbarNav {
+  margin-top: 20px;
+}
+
+.navbar {
+  background-color: transparent !important;
+}
+
+.link-navbar {
+  font-family: 'Anton', sans-serif;
+  color: #F38181;
+}
+.weight-400{
+  font-weight: 400
+}

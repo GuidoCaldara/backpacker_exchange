@@ -1,0 +1,58 @@
+@import "bootstrap";
+@import "bootstrap-datepicker";
+@import "blink";
+@import "flag-icon";
+@import "components/index";
+@import "pages/index";
+
+body{
+  font-family: 'Quicksand', sans-serif;
+  color: #20303c;
+}
+
+p{
+  font-size: 16px;
+  font-weight: 300
+}
+
+h3{
+  font-size: 20px
+}
+
+a{
+  font-size: 16px;
+  font-weight: 300;
+  text-decoration: none;
+  color:#20303c
+}
+
+a:hover{
+  text-decoration: none;
+  color: #20303c;
+}
+
+.fas, .far{
+  color: #a0a0a0
+}
+
+.fas:hover{
+color: #F38181
+}
+.far:hover{
+color: #F38181
+}
+
+.link-red{
+  font-size: 16px;
+  font-weight: 300;
+  text-decoration: none;
+  color:#20303c
+}
+
+.link-red:hover{
+  color: #F38181
+}
+
+.container{
+  min-height: calc(100vh - 248px)
+}

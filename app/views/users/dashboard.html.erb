@@ -1,0 +1,175 @@
+<div class="container">
+  <div class="row mt-5">
+    <div class="side-column col-lg-2">
+      <div class="mb-3 nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+        <a class="my-0 side-link nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">Home</a>
+        <a class="my-0 side-link nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">Profile Settings</a>
+        <a class="my-0 side-link nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#mail-and-psw" role="tab" aria-controls="mail-and-" aria-selected="false">Change mail and password</a>
+
+
+
+      </div>
+    </div>
+
+    <div class="col-lg-10">
+      <div class="tab-content" id="v-pills-tabContent">
+        <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
+
+          <div class="row">
+            <div class="col-lg-4">
+              <% if @user.avatar.url %>
+              <div class="user-photo mx-auto mb-4" style="background-image: url('<%= @user.avatar.url %>')"></div>
+              <% else %>
+              <div class="card-photo-cont" style="background-image: url('https://res.cloudinary.com/bckapp/image/upload/v1525918300/noimage.jpg')">
+              </div>
+              <% end %>
+            </div>
+
+          <div class="col-lg-8 d-flex flex-column">
+              <h2><%= @user.username %>   <span class=" ml-3 flag-icon flag-icon-<%= @user.place.split(",")[-1].strip.downcase%>"> </span>
+              </h2>
+
+              <div class="d-flex flex-column justify-content-around">
+                <p><%= @user.description %></p>
+              </div>
+              <%= link_to "Sell something", new_item_path, class: "mt-auto btn btn-primary w-25" %>
+
+            </div>
+          </div>
+          <div class="row d-flex mt-4">
+            <!-- Left Column sell -->
+            <% if @user.items.any? %>
+              <div class=" col-md-6 pl-4">
+                <h3 class="my-3">What are you selling</h3>
+                <div class="item-container">
+                  <% @selling_items.each do |item| %>
+
+                    <% if item.photo.url %>
+                      <% @image =  item.photo.url %>
+                      <% else %>
+                        <% @image = "https://res.cloudinary.com/bckapp/image/upload/v1525918300/noimage.jpg" %><% end %>
+                        <div class="item-card-wrapper">
+                          <p class="mb-0"><%= item.title.capitalize.truncate(18) %></p>
+                          <div class="item-dashboard-card" style="background-image: url('<%= @image %>')"></div>
+                          <div class="item-card-action">
+                            <%= link_to item_path(item.id) do %>
+                            <i class="far fa-eye" style=""></i>
+                          <% end  %>
+                            <%= link_to edit_item_path(item.id) do %>
+                            <i class="fas fa-edit"></i>
+                          <% end%>
+                          <a id="delete-item-btn" data-toggle="modal" data-target="#deleteModal" value="<%= item.id %>">
+                            <i class="fas fa-trash"></i>
+                          </a>
+                        </div>
+                      </div>
+                    <% end %>
+                  </div>
+                </div>
+              <% end %>
+              <!-- END Left Column sell -->
+              <!--  Column favourites -->
+              <% if @user.favourites.any? %>
+                <div class=" col-md-6 pl-4">
+                  <h3 class="my-3">What are you interested in</h3>
+                  <div class="item-container">
+                    <% @favourites.each do |item| %>
+                      <% if item.photo.url %>
+                        <% @image =  item.photo.url %>
+                        <% else %>
+                          <% @image = "https://res.cloudinary.com/bckapp/image/upload/v1525918300/noimage.jpg" %><% end %>
+                          <div class="item-card-wrapper">
+                            <p class="mb-0"><%= item.title.capitalize.truncate(18) %></p>
+                            <div class="item-dashboard-card" style="background-image: url('<%= @image %>')"></div>
+                            <div class="item-card-action">
+                              <%= link_to item_path(item.id) do %>
+                              <i class="far fa-eye" style="font-size:  30px;"></i>
+                            <% end  %>
+                            <% @fav = Favourite.where(item_id: item.id) %>
+                            <a id="delete-favourite-btn" data-toggle="modal"
+                             data-target="#deleteModal" value="<%= @fav[0].id %>">
+                              <i class="fas fa-trash"></i>
+                            </a>
+                          </div>
+                        </div>
+                      <% end %>
+                    </div>
+                  </div>
+                <% end %>
+          <!--  Column favourites END-->
+              </div>
+            </div>
+            <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
+              <div class="row">
+                <div class="col-lg-6 mx-auto">
+                  <%= simple_form_for current_user, url: save_profile_path(current_user.id), method: :post do |f| %>
+                    <%= f.input :username, label: "Choose an username" %>
+                    <%= f.input :description, label: "Tell something about you to others travelere"%>
+                    <%= f.input :dob, label: "Insert your date of birth",  start_year: Date.today.year - 110, end_year: Date.today.year %>
+                    <%= f.input :place, input_html: {id: "location"}, label: "Where are you from?" %>
+                    <%= f.input :avatar, label: "Upload your photo profile"%>
+                    <%= f.button :submit, "Save", class: "btn btn-primary"%>
+                  <% end %>
+                </div>
+
+              </div>
+            </div>
+            <div class="tab-pane fade" id="mail-and-psw" role="tabpanel" aria-labelledby="mail-and-psw">
+              <div class="row">
+                <div class="col-lg-6 mx-auto">
+                  <%= render 'devise/registrations/edit' %>
+                </div>
+
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div id="modal-body" class="modal-body">
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+    <script type="text/javascript">
+      var btn = document.querySelector("#delete-item-btn")
+      var modalBody = document.querySelector("#modal-body")
+      btn.addEventListener('click', function () {
+        id = document.querySelector("#delete-item-btn").getAttribute("value")
+        link = "http://localhost:3000/items/" + id
+        modalBody.insertAdjacentHTML("beforeend",'<a id="delete-link" rel="nofollow" data-method="delete" href="' + link + '">destroy</a>')
+      })
+
+      var btn = document.querySelector("#delete-favourite-btn")
+      var modalBody = document.querySelector("#modal-body")
+      btn.addEventListener('click', function () {
+        console.log("hll");
+        id = document.querySelector("#delete-favourite-btn").getAttribute("value")
+        link = "http://localhost:3000/favourites/" + id
+        modalBody.insertAdjacentHTML("beforeend",'<a id="delete-link" rel="nofollow" data-method="delete" href="' + link + '">destroy</a>')
+      })
+
+    </script>

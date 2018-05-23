@@ -1,0 +1,38 @@
+.btn-primary{
+  background-color: #95E1D3;
+  border: none;
+  color: white
+}
+
+
+.btn-primary:hover{
+  background-color: #66c7b6;
+  border: none;
+  color: white
+
+}
+.btn-primary:active{
+  background-color: #66c7b6 !important;
+  border: none !important;
+  color: white !important;
+
+}
+
+
+.button-secondary{
+  background-color: #FCE38A;
+  border: none;
+  color: #ef4d4d
+}
+
+
+.button-secondary:hover{
+  background-color: #ffd53f;
+  border: none;
+  color: #ef4d4d
+}
+
+.btn:focus{
+  box-shadow: none !important;
+
+}

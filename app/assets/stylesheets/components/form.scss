@@ -1,0 +1,55 @@
+.close-button {
+  width: 50px;
+  align-self: right !important;
+  margin-left: auto;
+  margin-top: 5px;
+  display: initial;
+  position: absolute;
+  z-index: 47;
+  right: 5px;
+}
+
+.close-button > span {
+  font-size: 35px;
+  font-weight: 300;
+}
+
+input {
+  font-weight: 300px !important;
+}
+
+.form-control:focus {
+  border-color: none;
+}
+
+#message_message {
+  height: 250px;
+}
+
+.disclaimer {
+  z-index: 1;
+  height: 100%;
+  position: absolute;
+  background-color: #efefef;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 28px;
+}
+
+.send-msg-btn:disabled {
+  background-color: #dadada;
+}
+
+.form-p {
+  font-family: Quicksand, sans-serif;
+  color: rgb(32, 48, 60);
+  font-weight: 400;
+}
+
+.was-validated .form-control:valid, .form-control.is-valid, .was-validated .custom-select:valid, .custom-select.is-valid {
+    /* border-color: #28a745; */
+    border: 1px solid #ced4da;
+  }

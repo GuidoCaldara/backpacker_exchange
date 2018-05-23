@@ -1,0 +1,90 @@
+<div class="container-fluid home-banner">
+  <div class="background d-flex flex-column justify-content-around">
+    <div class="search-form-home">
+      <div class="mt-5 logo-container">
+        <div class="title-container">
+            <h3 class="before-title">Welcome on</h3>
+            <h1 class="title" style="color: #F38181">Backpacker's Exchange</h1>
+            <h3 class="sub-t" style="color: #FCE38A">Buy and sell. From Backpacker to Backpacker</h3>
+            <%= link_to "Let's Start", items_path, class: "btn btn-primary mt-5 w-25 p-2 btn-home"%>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="container">
+  <div class="w-100 d-flex justify-content-around mt-3">
+  </div>
+
+  <div class="row mt-5">
+    <div class="col-lg-3 col-md-5 text-center d-flex justify-content-around">
+      <div class="circle">
+        <%= image_tag "logo1.png", height: "140px"  %>
+      </div>
+    </div>
+    <div class="col-lg-9  col-md-7 text-center d-flex flex-column justify-content-around mx-auto">
+      <p class ="home-text mt-4">Backpacker's Exchange is the first marketplace for travellers and Backpackers. You just finished the Annapurna Circuit Trek and now you are heading to Thailand to chill and party?
+      Are you leaving Mexico's beaches to go to the cold Patagonia?
+      The coat you bought to visit Sweeden is too warm for Rome?
+      Sell what you don't need anymore in your backpack and find some cool stuff for your next adventures!</p>
+    </div>
+  </div>
+  <div class="row mt-5 row-home">
+    <div class="col-lg-9  col-md-7 text-center d-flex flex-column justify-content-around mx-auto">
+      <p class ="home-text mt-4">Backpacker'Exchange alowed you to simply sell your stuff for free to other backpackers. Upload what you don't need anymore! Tell to the other backpackers where are you selling from and when the stuff will be available and it's done. Simply and fast! </p>
+    </div>
+    <div class="col-lg-3 col-md-5 text-center d-flex justify-content-around">
+      <div class="circle">
+        <%= image_tag "grocery.png", height: "140px"  %>
+      </div>
+    </div>
+
+  </div>
+  <div class="row mt-5 row-home">
+    <div class="col-lg-3 col-md-5 text-center d-flex justify-content-around">
+      <div class="circle">
+        <%= image_tag "transaction.png", height: "140px"  %>
+      </div>
+    </div>
+    <div class="col-lg-9  col-md-7 text-center d-flex flex-column justify-content-around mx-auto">
+      <p class ="home-text mt-4"> Are you looking for some stuff to buy? Browse the database for location and find what you need in the place where you need. Contact the seller, make a deal and it's done!</p>
+    </div>
+  </div>
+</div>
+
+
+<script>
+  $(function(){
+      $(".country").typed({
+        strings: ["Albania", "Andorra", "Angola", "Anguilla", "Argentina", "Armenia", "Aruba", "Australia", "Austria", "Azerbaijan", "Bahamas", "Bahrain", "Bangladesh", "Barbados", "Belarus", "Belgium", "Belize", "Benin", "Bermuda", "Bhutan", "Bolivia", "Botswana", "Brazil", "Brunei ", "Bulgaria", "Burundi", "Cambodia", "Cameroon", "Canada", "Cape Verde", "Chad", "Chile", "China", "Colombia", "Comoros", "Congo", "Congo", "Costa Rica", "Cuba", "Cyprus", "Denmark", "Djibouti", "Dominica", "East Timor", "Ecuador", "Egypt", "El Salvador", "Eritrea", "Estonia", "Ethiopia", "Fiji", "Finland", "France", "Gabon", "Gambia", "Georgia", "Germany", "Ghana", "Gibraltar", "Greece", "Greenland", "Grenada", "Guadeloupe", "Guam", "Guatemala", "Guinea", "Guyana", "Haiti", "Honduras", "Hong Kong", "Hungary", "Iceland", "India", "Indonesia", "Iraq", "Ireland", "Israel", "Italy", "Jamaica", "Japan", "Jordan", "Kazakhstan", "Kenya", "Kiribati", "Kuwait", "Kyrgyzstan", "Latvia", "Lebanon", "Lesotho", "Liberia", "Lithuania", "Luxembourg", "Macau", "Madagascar", "Malawi", "Malaysia", "Maldives", "Mali", "Malta", "Martinique", "Mauritania", "Mauritius", "Mayotte", "Mexico", "Monaco", "Mongolia", "Montserrat", "Morocco", "Mozambique", "Myanmar", "Namibia", "Nauru", "Nepal", "Netherlands", "New Zealand", "Nicaragua", "Niger", "Nigeria", "Niue", "Norway", "Oman", "Pakistan", "Palau", "Panama", "Paraguay", "Peru", "Philippines", "Pitcairn", "Poland", "Portugal", "Puerto Rico", "Qatar", "Reunion", "Romania", "Rwanda", "Saint Lucia", "Samoa", "San Marino", "Senegal", "Seychelles", "Singapore", "Slovenia", "Somalia", "Spain", "Sri Lanka", "St. Helena", "Sudan", "Suriname", "Swaziland", "Sweden", "Switzerland", "Tajikistan", "Thailand", "Togo", "Tokelau", "Tonga", "Tunisia", "Turkey", "Tuvalu", "Uganda", "Ukraine", "Uruguay", "Uzbekistan", "Vanuatu", "Venezuela", "Vietnam", "Yemen", "Yugoslavia", "Zambia", "Zimbabwe", "Albania", "Andorra", "Angola", "Anguilla", "Argentina", "Armenia", "Aruba", "Australia", "Austria", "Azerbaijan", "Bahamas", "Bahrain", "Bangladesh", "Barbados", "Belarus", "Belgium", "Belize", "Benin", "Bermuda", "Bhutan", "Bolivia", "Botswana", "Brazil", "Brunei ", "Bulgaria", "Burundi", "Cambodia", "Cameroon", "Canada", "Cape Verde", "Chad", "Chile", "China", "Colombia", "Comoros", "Congo", "Congo", "Costa Rica", "Cuba", "Cyprus", "Denmark", "Djibouti", "Dominica", "East Timor", "Ecuador", "Egypt", "El Salvador", "Eritrea", "Estonia", "Ethiopia", "Fiji", "Finland", "France", "Gabon", "Gambia", "Georgia", "Germany", "Ghana", "Gibraltar", "Greece", "Greenland", "Grenada", "Guadeloupe", "Guam", "Guatemala", "Guinea", "Guyana", "Haiti", "Honduras", "Hong Kong", "Hungary", "Iceland", "India", "Indonesia", "Iraq", "Ireland", "Israel", "Italy", "Jamaica", "Japan", "Jordan", "Kazakhstan", "Kenya", "Kiribati", "Kuwait", "Kyrgyzstan", "Latvia", "Lebanon", "Lesotho", "Liberia", "Lithuania", "Luxembourg", "Macau", "Madagascar", "Malawi", "Malaysia", "Maldives", "Mali", "Malta", "Martinique", "Mauritania", "Mauritius", "Mayotte", "Mexico", "Monaco", "Mongolia", "Montserrat", "Morocco", "Mozambique", "Myanmar", "Namibia", "Nauru", "Nepal", "Netherlands", "New Zealand", "Nicaragua", "Niger", "Nigeria", "Niue", "Norway", "Oman", "Pakistan", "Palau", "Panama", "Paraguay", "Peru", "Philippines", "Pitcairn", "Poland", "Portugal", "Puerto Rico", "Qatar", "Reunion", "Romania", "Rwanda", "Saint Lucia", "Samoa", "San Marino", "Senegal", "Seychelles", "Singapore", "Slovenia", "Somalia", "Spain", "Sri Lanka", "St. Helena", "Sudan", "Suriname", "Swaziland", "Sweden", "Switzerland", "Tajikistan", "Thailand", "Togo", "Tokelau", "Tonga", "Tunisia", "Turkey", "Tuvalu", "Uganda", "Ukraine", "Uruguay", "Uzbekistan", "Vanuatu", "Venezuela", "Vietnam", "Yemen", "Yugoslavia", "Zambia", "Zimbabwe"],
+        typeSpeed: 140,
+        shuffle: true
+      });
+  });
+</script>
+
+
+
+<script>
+(function() {
+  var placesAutocomplete = places({
+    container: document.querySelector('#search_location'),
+    language: 'en',
+    type: 'country',
+
+
+    templates: {
+      suggestion: function(suggestion) {
+        return  suggestion.highlight.name + ", " + suggestion.countryCode.toUpperCase()
+      },
+      value: function(suggestion) {
+        return suggestion.name + ", " + suggestion.countryCode.toUpperCase()
+    }
+    }
+  });
+})();
+
+</script>

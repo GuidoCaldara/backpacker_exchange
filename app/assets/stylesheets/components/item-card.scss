@@ -1,0 +1,39 @@
+.card-photo-cont {
+  min-height: 180px;
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  position: relative;
+}
+
+.item-card:hover {
+  border: 1px solid #95E1D3;
+  box-shadow: 0 0 10px #95E1D3;
+}
+
+.price-info {
+  position: absolute;
+  right: 15px;
+  top: 10px;
+  background-color: #F38181;
+  color: #EAFFD0;
+  font-size: 19px;
+  border-radius: 50%;
+  padding: 10px;
+}
+
+.item-card-body {
+  min-height: 200px;
+  max-height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.card-info {
+  font-size: 14px;
+}
+
+.item-card-description {
+  font-size: 14px;
+}
