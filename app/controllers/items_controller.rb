@@ -16,7 +16,7 @@ before_action :authenticate_user!, except: [:show, :index]
       @cities =cities(@filtered_items)
       @country = @filtered_items.sample.country if !@filtered_items.empty?
     else
-      @items = Item.where("available_to >= ?", Date.new )
+      @items = Item.where("available_to >= ?", Date.today )
       @countries = countries(@items)
     end
   end
