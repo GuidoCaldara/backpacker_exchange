@@ -27,15 +27,15 @@ geocoded_by :location
 
 
   def self.string_query(params1, params2)
-    Item.where("country LIKE  ? AND available_to > ?", params1 , params2 )
+    Item.where("country LIKE  ? AND available_to >= ?", params1 , params2 )
   end
 
   def self.city_query(params1, params2, params3)
-    Item.where("city LIKE  ? AND country LIKE ? AND available_to > ?", params1 , params2, params3)
+    Item.where("city LIKE  ? AND country LIKE ? AND available_to >= ?", params1 , params2, params3)
   end
 
   def self.country_query(params1, params2)
-    Item.where("country LIKE ? AND available_to > ?", params1 , params2 )
+    Item.where("country LIKE ? AND available_to >= ?", params1 , params2 )
   end
 
   def check_dates

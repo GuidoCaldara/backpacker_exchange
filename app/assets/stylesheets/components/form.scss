@@ -53,3 +53,8 @@ input {
     /* border-color: #28a745; */
     border: 1px solid #ced4da;
   }
+
+  textarea#item_description{
+    min-height: 300px;
+    max-height: 300px;
+  }

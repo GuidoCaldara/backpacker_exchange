@@ -47,7 +47,8 @@
         <%= render "card", item: item%>
       <% end %>
       <% if @filtered_items.empty? %>
-        <h3>So sorry! Actually no stuff for sale in XXXX
+      <% byebug %>
+        <h3>So sorry! Actually no stuff for sale in <%= params["search_location"] %>
           :(
         </h3>
       <% end %>
