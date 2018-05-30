@@ -29,9 +29,9 @@
               <h2><%= @user.username %>   <span class=" ml-3 flag-icon flag-icon-<%= @user.place.split(",")[-1].strip.downcase%>"> </span>
               </h2>
 
-              <div class="d-flex flex-column justify-content-around">
-                <p><%= @user.description %></p>
-              </div>
+              <!-- <div class="d-flex flex-column justify-content-around">
+                <p><%#= @user.description %></p>
+              </div> -->
               <%= link_to "Sell something", new_item_path, class: "mt-auto btn btn-primary w-25" %>
 
             </div>
@@ -132,12 +132,6 @@
     <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
           <div id="modal-body" class="modal-body">
           </div>
         </div>
@@ -155,21 +149,44 @@
 
 
     <script type="text/javascript">
-      var btn = document.querySelector("#delete-item-btn")
-      var modalBody = document.querySelector("#modal-body")
-      btn.addEventListener('click', function () {
-        id = document.querySelector("#delete-item-btn").getAttribute("value")
-        link = "http://localhost:3000/items/" + id
-        modalBody.insertAdjacentHTML("beforeend",'<a id="delete-link" rel="nofollow" data-method="delete" href="' + link + '">destroy</a>')
-      })
 
-      var btn = document.querySelector("#delete-favourite-btn")
-      var modalBody = document.querySelector("#modal-body")
-      btn.addEventListener('click', function () {
-        console.log("hll");
-        id = document.querySelector("#delete-favourite-btn").getAttribute("value")
-        link = "http://localhost:3000/favourites/" + id
-        modalBody.insertAdjacentHTML("beforeend",'<a id="delete-link" rel="nofollow" data-method="delete" href="' + link + '">destroy</a>')
-      })
+      document.addEventListener("DOMContentLoaded", function(event) {
+        var btn = document.querySelector("#delete-item-btn")
+        var modalBody = document.querySelector("#modal-body")
+        if (btn != null) {
+          btn.addEventListener('click', function () {
+            id = document.querySelector("#delete-item-btn").getAttribute("value")
+            link = "http://localhost:3000/items/" + id
+            modalBody.insertAdjacentHTML("beforeend",'<h3>Are you sure you want to remove it from sell? </h3><div class="d-flex mt-3"><a id="delete-link" rel="nofollow" data-method="delete" class="btn btn-danger" href="' + link + '"> Destroy</a> <button type="button" class="ml-4 modal-destroy-btn btn btn-primary close" data-dismiss="modal" aria-label="Close"> Go Back </button></div>')
+          })
+        }
+      });
+
+
+
+
+
+
+
+
+
+
+      document.addEventListener("DOMContentLoaded", function(event) {
+        var btn = document.querySelector("#delete-favourite-btn")
+        var modalBody = document.querySelector("#modal-body")
+
+        if (btn != null) {
+          btn.addEventListener('click', function () {
+            console.log("hll");
+            id = document.querySelector("#delete-favourite-btn").getAttribute("value")
+            link = "http://localhost:3000/favourites/" + id
+            modalBody.insertAdjacentHTML("beforeend",'<h3>Are you sure you want to remove it from your favourites? </h3> <div class="d-flex mt-3"><a id="delete-link" rel="nofollow" data-method="delete" class="btn btn-danger" href="' + link + '">destroy</a> <button type="button" class="ml-4 modal-destroy-btn btn btn-primary close" data-dismiss="modal" aria-label="Close"> Go Back </button></div>')
+          })
+
+        }
+});
+
+
+
 
     </script>
