@@ -2,45 +2,40 @@
   <div class="row">
     <div class="col-lg-6 mx-auto">
       <%= simple_form_for @item do |f| %>
-        <%= f.input :title, label: "Title - What are you selling?" %>
-        <%= f.input :description, label: "Insert a description of what are you selling" %>
-        <%= f.input :location, input_html: {id: "location"}, label:"Whare are you selling this item?"%>
-        <p class= "form-p">When the item will be available in this place?</p>
-        <div id= "date-range-container" class="form-row d-flex justify-content-around">
-          <div class="input-daterange input-group" id="datepicker">
-            <%= f.input :available_from, html5: true, input_html: {type: "text", class: "form-control"}, label: "From"%>
-              <%= f.input :available_to, html5: true, input_html: { type: "text", class: "form-control"}, label: "To" %>
-          </div>
-
+      <%= f.input :title, label: "Title - What are you selling?" %>
+      <%= f.input :description, label: "Insert a description of what are you selling" %>
+      <%= f.input :location, input_html: {id: "location"}, label:"Whare are you selling this item?"%>
+      <p class="form-p">When the item will be available in this place?</p>
+      <div id="date-range-container" class="form-row d-flex justify-content-around">
+        <div class="input-daterange input-group" id="datepicker">
+          <%= f.input :available_from, html5: true, input_html: {type: "text", class: "form-control"}, label: "From"%>
+          <%= f.input :available_to, html5: true, input_html: { type: "text", class: "form-control"}, label: "To" %>
         </div>
-        <%= f.input :price, label: "Insert the price in US Dollars" %>
-        <%= f.input :free, label: "Click here if you want to give away this stuff for free!"%>
 
-        <%= f.input :photo, label: "Upload a photo. A photo of the object is mandatory"%>
+      </div>
+      <%= f.input :price, label: "Insert the price in US Dollars", :input_html => { :type => "number" } %>
+      <%= f.input :free, label: "Click here if you want to give away this stuff for free!"%>
 
-        <%= f.button :submit, "Insert", class: "btn btn-primary" %>
-      <% end %>
+      <%= f.input :photo, label: "Upload a photo. A photo of the object is mandatory"%>
+      <div class="">
+        <div class="load-container">
+          <%= f.button :submit, "Insert", class: "btn btn-primary", id: "upload-btn" %>
+        </div>
+        <div class="loader" style="display:none"></div>
+      </div>
 
-    </div>
+    <% end %>
+
   </div>
 </div>
-
-
-
+</div>
 
 <script type="text/javascript">
-$('#date-range-container .input-daterange').datepicker({
-  format: "dd/mm/yyyy",
-  keyboardNavigation: false,
-  forceParse: false
-});
+$('#date-range-container .input-daterange').datepicker({format: "dd/mm/yyyy", keyboardNavigation: false, forceParse: false});
 </script>
 
 <script>
-(function() {
-  var placesAutocomplete = places({
-    language : 'en',
-    container: document.querySelector('#location')
-  });
+(function () {
+  var placesAutocomplete = places({language: 'en', container: document.querySelector('#location')});
 })();
 </script>

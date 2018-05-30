@@ -26,17 +26,15 @@ before_action :authenticate_user!, except: [:show, :index]
 
   def new
     @item = Item.new
-    authorize @item
   end
 
   def create
     @item = Item.new(item_params)
-    authorize @item
     @item.user_id = current_user.id
     if @item.save
      redirect_to user_dashboard_path(current_user.id)
     else
-     redirect_to new_item_path
+     render 'new'
     end
   end
 
@@ -51,7 +49,7 @@ before_action :authenticate_user!, except: [:show, :index]
     if @item.save
       redirect_to user_dashboard_path(current_user.id)
     else
-     redirect_to edit_item_path(@item.id)
+     render 'edit'
     end
   end
 
@@ -87,6 +85,6 @@ before_action :authenticate_user!, except: [:show, :index]
   end
 
   def item_params
-    params.require(:item).permit(:title, :description, :location, :available_from, :available_to, :photo, :search_location)
+    params.require(:item).permit(:title, :description, :location, :price, :available_from, :available_to, :photo, :search_location)
   end
 end

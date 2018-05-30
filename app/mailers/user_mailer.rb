@@ -6,6 +6,7 @@ class UserMailer < ApplicationMailer
     @reciver = params[:reciver]
     @message = params[:message]
     @item = params[:item]
+    @date = Date.new
     @reciver.email
     mail( :to => @reciver.email,
       :from => @sender.email,
