@@ -24,9 +24,9 @@
           <div class="show-user-info">
             <p>Selled by <%= @item.user.username %></p>
           </div>
-          <% if user_signed_in? %>
+          <% if user_signed_in? && (current_user.id != @item.user_id) %>
             <button id="create-btn" class = "btn btn-primary" type="button" name="button" data-toggle="modal" data-target="#message"> Contact the seller</button>
-          <% else %>
+          <% elsif !user_signed_in? %>
             <button class = "btn btn-primary" type="button" name="button" data-toggle="modal" data-target="#access"> Contact the seller</button>
           <% end %>
         </div>
