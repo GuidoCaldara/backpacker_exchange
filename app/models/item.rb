@@ -10,7 +10,7 @@ validate :check_dates
 after_validation :geocode
 before_save :lat_long?
 before_save :check_places
-
+has_many :favourites, dependent: :destroy
 mount_uploader :photo, PhotoUploader
 belongs_to :user
 geocoded_by :location
