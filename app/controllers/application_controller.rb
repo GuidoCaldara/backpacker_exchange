@@ -10,7 +10,7 @@ class ApplicationController < ActionController::Base
     URI.parse(request.referer).path == "/" ||
     URI.parse(request.referer).path == "/it/users/sign_in" ||
     URI.parse(request.referer).path == "/it/users/sign_in"
-    item_path
+    items_path
     else
       URI.parse(request.referer).path if request.referer
     end
