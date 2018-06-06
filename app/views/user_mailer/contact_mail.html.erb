@@ -1,95 +1,95 @@
 <!doctype html>
 <html lang="en">
 
-<head>
-  <!-- Required meta tags -->
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-  <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
-  <style media="screen">
-    body {
-      font-weight: 300 !important;
-      color: #424141
-    }
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Anton" rel="stylesheet">
+    <style media="screen">
 
-    .col-md-8 {
-      border: 2px solid #F38181;
-      border-radius: 11px;
-      background-color: white;
-      padding-top: 30px;
-      padding-left: 30px;
-      padding-right: 30px;
-      padding-bottom: 30px;
-    }
+      body {
+        font-weight: 300 !important;
+        color: #424141;
+      }
 
-    .logo-text {
-      font-family: 'Anton', sans-serif;
-      color: #F38181;
-      font-size: 16px
-    }
+      .col-md-8 {
+        border: 2px solid #F38181;
+        border-radius: 11px;
+        background-color: white;
+        padding: 30px;
+      }
 
-    .message-container {
-      margin-top: 20px;
-      border: 1px solid #cecece;
-      border-radius: 6px;
-      padding: 20px;
-      margin-bottom: 20px;
-    }
+      .logo-text {
+        font-family: 'Anton', sans-serif;
+        color: #F38181;
+        font-size: 16px;
+      }
 
-    .footer {
-      padding-top: 8px;
-      padding-bottom: 15px;
-      width: 100%;
-      height: 55px;
-      background-color: #FCE38A;
-      margin-top: 40px;
-      color: #F38181;
-      text-align: center;
-    }
+      .message-container {
+        margin-top: 20px;
+        border: 1px solid #cecece;
+        border-radius: 6px;
+        padding: 20px;
+        margin-bottom: 20px;
+      }
 
-    .footer p {
-      font-size: 14px;
-    }
+      .footer {
+        padding-top: 10px;
+        width: 100%;
+        height: 65px;
+        background-color: #FCE38A;
+        color: #F38181;
+        text-align: center;
+      }
 
-  </style>
+      .footer p {
+        font-size: 14px;
+      }
+    </style>
 
-</head>
+  </head>
 
-<body>
-  <div class="container-fluid" style="background-color: #F38181">
-    <div class="row">
-      <div class="col-md-8 mx-auto mt-4 mb-4" style="background-color: white">
-        <div class="d-flex">
-          <%= image_tag ("logo1.png"), height: "40px" %>
-            <p class="logo text">Backpacker Exchange</p>
+  <body>
+    <div class="container-fluid" style="background-color: #F38181">
+      <div class="row">
+        <div class="col-md-8 mx-auto mt-4 mb-4" style="background-color: white">
+          <div class="d-flex align-items-baseline">
+            <img src="https://res.cloudinary.com/bckapp/image/upload/v1528105482/logo1_copy.png" alt="" style="height: 30px">
+            <p class="ml-2 logo-text">Backpacker Exchange</p>
+          </div>
+          <h1 class="mb-3">
+            Hello
+            <%= @reciver.username %></h1>
+          <h3 class="mb-3">
+            Someone is interested in your
+             "<%= @item.title %>".
+          </h3>
+          <p>
+            <%= @sender.username %>
+            just wrote you this message on
+            <%= @date.strftime("%A, %B %e, at %l:%m") %>:</p>
+          <div class="message-container">
+
+            <p><%= @message %></p>
+
+          </div>
+          <p>You can now answer to
+            <%= @sender.username %>,
+            directly clicking on "Answer" on your mail client</p>
         </div>
-        <h2 class="mb-3"> Hello <%= @reciver.username  %></h2>
-        <h5 class="mb-3"> Someone is interested in your <%= @item.title  %>. </h5>
-        <p>
-          <%= @sender.username %> just wrote you this message on
-            <%= @date.strftime("%A %b %e, at %l:%m %Z") %>:</p>
-        <div class="message-container">
-
-          <p>dasldàsòlòàd lsaàòldòàls dlsdalks adklòsa kdòlkasòdkò akdòkòsldkaò lkdsòlksaò lkdalòsk dòaskòdkasòl dasldàsòlòàd lsaàòldòàls dlsdalks adklòsa kdòlkasòdkò akdòkòsldkaò lkdsòlksaò lkdalòsk dòaskòdkasòl dasldàsòlòàd lsaàòldòàls dlsdalks adklòsa
-            kdòlkasòdkò akdòkòsldkaò lkdsòlksaò lkdalòsk dòaskòdkasòl dasldàsòlòàd lsaàòldòàls dlsdalks adklòsa kdòlkasòdkò akdòkòsldkaò lkdsòlksaò lkdalòsk dòaskòdkasòl</p>
-
-        </div>
-        <p>You can now contact
-          <%= @sender.username %> on this email address:</p>
-        <%= @sender.email %>
-
       </div>
     </div>
-  </div>
-<%= render "shared/footer" %>
+    <%= render "shared/footer" %>
 
-  <!-- Optional JavaScript -->
-  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
-</body>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+  </body>
 
 </html>

@@ -8,7 +8,9 @@
   </div>
 
   <div class="field">
-    <%= f.input :password, autocomplete: "off" %>
+    <%= f.label :password %> <br>
+    <em>Must be 8 characters minimum and contain at least one lowercase letter, one uppercase letter, and one digit</em>
+    <%= f.input :password, autocomplete: "off", label: false%>
   </div>
 
   <div class="field">
