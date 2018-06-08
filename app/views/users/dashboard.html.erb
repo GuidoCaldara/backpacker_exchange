@@ -140,15 +140,25 @@
     </div>
   </div>
 
+<%if Rails.env.development? %>
+<% @link_items = "http://localhost:3000/items/" %>
+<% @link_favourites = "http://localhost:3000/favourites/" %>
+<% else %>
+<% @link_items = "https://backpackerexchange.herokuapp.com/items" %>
+<% @link_favourites = "https://backpackerexchange.herokuapp.com/favourites/" %>
+
+<% end %>
+
   <script type="text/javascript">
 
     document.addEventListener("DOMContentLoaded", function (event) {
+      var site_link = "<%= @link_items %>"
       var btn = document.querySelector("#delete-item-btn")
       var modalBody = document.querySelector("#modal-body")
       if (btn != null) {
         btn.addEventListener('click', function () {
           id = document.querySelector("#delete-item-btn").getAttribute("value")
-          link = "http://localhost:3000/items/" + id
+          link = site_link + id
           modalBody.insertAdjacentHTML(
             "beforeend",
             '<h3>Are you sure you want to remove it from sell? </h3><div class="d-flex mt-3"><a id="delete-link" rel="nofollow" data-method="delete" class="btn btn-danger" href="' + link + '"> Destroy</a> <button type="button" class="ml-4 modal-destroy-btn btn ' +
@@ -161,12 +171,12 @@
     document.addEventListener("DOMContentLoaded", function (event) {
       var btn = document.querySelector("#delete-favourite-btn")
       var modalBody = document.querySelector("#modal-body")
-
+      var site_link = "<%= @link_favourites %>"
       if (btn != null) {
         btn.addEventListener('click', function () {
           console.log("hll");
           id = document.querySelector("#delete-favourite-btn").getAttribute("value")
-          link = "http://localhost:3000/favourites/" + id
+          link = site_link + id
           modalBody.insertAdjacentHTML(
             "beforeend",
             '<h3>Are you sure you want to remove it from your favourites? </h3> <div class="d-flex mt-3"><a id="delete-link" rel="nofollow" data-method="delete" class="btn btn-danger" href="' + link + '">destroy</a> <button type="button" class="ml-4 modal-destr' +
