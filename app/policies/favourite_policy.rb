@@ -7,6 +7,7 @@ class FavouritePolicy
   end
 
   def destroy?
+    
    @user.id == @record.id
   end
 
