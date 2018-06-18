@@ -1,17 +1,16 @@
-.city-suggestion{
+.city-suggestion {
   background-color: #F38181;
-margin-left: 12px;
-margin-bottom: 5px;
-padding: 0 10px;
-border-radius: 6px;
-color: #ffffff;
+  margin-bottom: 5px;
+  padding: 0 10px;
+  border-radius: 6px;
+  color: #ffffff;
+  max-height: 25px;
+  width: 100%;
 }
 
-
-.city-suggestion:hover{
-  background-color: #ef4d4d
+.city-suggestion:hover {
+  background-color: #ef4d4d;
 }
-
 
 .city-suggestion:active {
   background-color: #ef4d4d;

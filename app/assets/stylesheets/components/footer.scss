@@ -1,8 +1,8 @@
 .footer {
   padding-top: 8px;
-  padding-bottom: 15px;
+  padding-bottom: 8px;
   width: 100%;
-  height: 55px;
+  height: auto ;
   background-color: #FCE38A;
   margin-top: 40px;
   color: #F38181;
@@ -11,4 +11,16 @@
 
 .footer p {
   font-size: 14px;
+}
+
+.footer-link{
+  font-size: 14px;
+  color: #F38181;
+  margin-bottom: 0px
+}
+
+.footer-link:hover{
+  font-size: 14px;
+  color: #F38181;
+  cursor: pointer;
 }
