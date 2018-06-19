@@ -1,3 +1,11 @@
+<% set_meta_tags title: " #{@item.title.capitalize}",
+                 description: "#{ @item.description.truncate(70)} ..."%>
+<%= display_meta_tags og: {
+                     title: "#{@item.title.capitalize} on Backpacker Exchange",
+                     description:"#{ @item.description.capitalize.truncate(70)} ...",
+                     image: "#{ @item.photo.url}" } %>
+
+
 <div class="container">
   <div class="row mt-5">
     <div class="col-lg-10">
