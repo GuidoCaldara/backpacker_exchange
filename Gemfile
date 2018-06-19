@@ -22,6 +22,7 @@ gem 'carrierwave', '~> 0.11.2'
 gem  "faker"
 gem 'flag-icons-rails'
 gem 'typedJS'
+gem 'meta-tags'
 gem 'sendgrid-ruby'
 gem "letter_opener", :group => :development
 
