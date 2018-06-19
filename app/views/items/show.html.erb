@@ -3,7 +3,12 @@
 <%= display_meta_tags og: {
                      title: "#{@item.title.capitalize} on Backpacker Exchange",
                      description:"#{ @item.description.capitalize.truncate(70)} ...",
-                     image: "#{ @item.photo.url}",
+                       image: {
+                         _:  "#{ @item.photo.url}",
+                          type: 'image/jpeg',
+                          width: '3523',
+                          height: '2372'
+                        },
                      site_name: "BackpackerExchange" }%>
 
 
