@@ -3,7 +3,10 @@
 <%= display_meta_tags og: {
                      title: "#{@item.title.capitalize} on Backpacker Exchange",
                      description:"#{ @item.description.capitalize.truncate(70)} ...",
-                     image: "#{ @item.photo.url}" } %>
+                     image: "#{ @item.photo.url}",
+                     image:width: "640",
+                     image:height: "442"},
+                     site_name: "BackpackerEschange" %>
 
 
 <div class="container">
