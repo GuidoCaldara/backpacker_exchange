@@ -47,7 +47,7 @@ config.force_ssl = true
   # config.action_cable.url = 'wss://example.com/cable'
   # config.action_cable.allowed_request_origins = [ 'http://example.com', /http:\/\/example.*/ ]
 
-  config.action_mailer.default_url_options = { :host => 'backpackerexchange.com' }
+  config.action_mailer.default_url_options = { :host => 'www.backpackerexchange.com' }
   ActionMailer::Base.smtp_settings = {
     :address        => "smtp.sendgrid.net",
     :port           => "25",
