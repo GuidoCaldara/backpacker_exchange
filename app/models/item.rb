@@ -3,7 +3,7 @@ class Item < ApplicationRecord
 before_validation :price_to_i
 validates :title, :location, presence: true, length: { maximum: 100 }
 validates :description, presence: true,  length: { maximum: 600 }
-validates :price, numericality: { greater_than: 0}
+validates :price, numericality: { greater_than: 0}, unless: :is_free?
 validates :available_to, :available_from, presence: true
 validate :is_date?
 validate :check_dates
@@ -25,7 +25,9 @@ geocoded_by :location
   end
   after_validation :reverse_geocode
 
-
+  def is_free?
+    self.free
+  end
   def self.string_query(params1, params2)
     Item.where("country LIKE  ? AND available_to >= ?", params1 , params2 )
   end

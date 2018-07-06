@@ -17,6 +17,7 @@
       <%= f.input :free, label: "Click here if you want to give away this stuff for free!"%>
 
       <%= f.input :photo, label: "Upload a photo. A photo of the object is mandatory"%>
+      <%= f.input :photo_cache, as: :hidden %>
       <div class="">
         <div class="load-container">
           <%= f.button :submit, "Insert", class: "btn btn-primary", id: "upload-btn" %>
