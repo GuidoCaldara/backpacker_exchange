@@ -8,6 +8,7 @@ validates :available_to, :available_from, presence: true
 validate :is_date?
 validate :check_dates
 after_validation :geocode
+after_validation :set_city
 before_save :lat_long?
 before_save :check_places
 has_many :favourites, dependent: :destroy
@@ -20,11 +21,12 @@ geocoded_by :location
     if geo = results.first
       obj.country_code = geo.country_code
       obj.country = geo.country
-      obj.city = geo.city
     end
   end
   after_validation :reverse_geocode
-
+  def set_city
+    self.city = self.location.split(",")[0]
+  end
   def is_free?
     self.free
   end
